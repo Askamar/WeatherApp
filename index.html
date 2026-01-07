@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atmosphere | Premium Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌤️</text></svg>">
+</head>
+<body>
+    <div class="app-background"></div>
+    <div class="overlay"></div>
+
+    <main class="container">
+        <header>
+            <h1>Atmosphere</h1>
+            <div class="search-container">
+                <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off">
+                <button id="search-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </div>
+        </header>
+
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+        </div>
+
+        <div id="error-message" class="hidden">
+            <p>City not found or network error. Please try again.</p>
+        </div>
+
+        <div id="weather-content" class="weather-content hidden">
+            <!-- Main Weather Section -->
+            <section class="current-weather">
+                <div class="location-badge">
+                    <span id="location-text">London, UK</span>
+                </div>
+                <div class="weather-main-info">
+                    <div class="weather-icon-container">
+                        <img id="weather-icon" src="" alt="Weather Condition">
+                    </div>
+                    <div class="temp-container">
+                        <span id="temp-value">--</span>
+                        <span class="unit">°C</span>
+                    </div>
+                    <div class="condition-text" id="condition-text">--</div>
+                    <div class="last-updated">Updated: <span id="last-updated">--</span></div>
+                </div>
+            </section>
+
+            <!-- Weather Details Grid -->
+            <section class="weather-details">
+                <div class="detail-card">
+                    <span class="label">Humidity</span>
+                    <div class="value-group">
+                        <span class="value" id="humidity">--</span>
+                        <span class="unit">%</span>
+                    </div>
+                    <div class="icon">💧</div>
+                </div>
+                <div class="detail-card">
+                    <span class="label">Wind Speed</span>
+                    <div class="value-group">
+                        <span class="value" id="wind">--</span>
+                        <span class="unit">km/h</span>
+                    </div>
+                    <div class="icon">💨</div>
+                </div>
+                <div class="detail-card">
+                    <span class="label">Feels Like</span>
+                    <div class="value-group">
+                        <span class="value" id="feels-like">--</span>
+                        <span class="unit">°C</span>
+                    </div>
+                    <div class="icon">🌡️</div>
+                </div>
+                <div class="detail-card">
+                    <span class="label">UV Index</span>
+                    <div class="value-group">
+                        <span class="value" id="uv">--</span>
+                    </div>
+                    <div class="icon">☀️</div>
+                </div>
+                <div class="detail-card">
+                    <span class="label">Pressure</span>
+                    <div class="value-group">
+                        <span class="value" id="pressure">--</span>
+                        <span class="unit">mb</span>
+                    </div>
+                    <div class="icon">⏲️</div>
+                </div>
+                <div class="detail-card">
+                    <span class="label">Visibility</span>
+                    <div class="value-group">
+                        <span class="value" id="visibility">--</span>
+                        <span class="unit">km</span>
+                    </div>
+                    <div class="icon">👁️</div>
+                </div>
+            </section>
+
+            <!-- Air Quality Section -->
+            <section class="aqi-section">
+                <h3>Air Quality</h3>
+                <div class="aqi-grid">
+                    <div class="aqi-item">
+                        <span class="aqi-label">PM2.5</span>
+                        <span class="aqi-value" id="pm2_5">--</span>
+                    </div>
+                    <div class="aqi-item">
+                        <span class="aqi-label">PM10</span>
+                        <span class="aqi-value" id="pm10">--</span>
+                    </div>
+                    <div class="aqi-item">
+                        <span class="aqi-label">CO</span>
+                        <span class="aqi-value" id="co">--</span>
+                    </div>
+                    <div class="aqi-item">
+                        <span class="aqi-label">NO2</span>
+                        <span class="aqi-value" id="no2">--</span>
+                    </div>
+                    <div class="aqi-item main-aqi">
+                        <span class="aqi-label">US EPA Index</span>
+                        <span class="aqi-value" id="us-epa-index">--</span>
+                        <span class="aqi-status" id="aqi-status">--</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

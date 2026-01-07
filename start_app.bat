@@ -1,0 +1,9 @@
+@echo off
+echo Installing dependencies (first time only)...
+call npm install
+cls
+echo Starting Weather App Server...
+echo Opening in browser...
+start http://localhost:3000
+npm start
+pause
